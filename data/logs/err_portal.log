@@ -1,0 +1,55 @@
+14:43:01.610 [Thread-30] DEBUG org.apache.http.headers - >> Connection: Keep-Alive
+14:43:01.611 [Thread-30] DEBUG org.apache.http.headers - >> User-Agent: Java-EurekaClient/v1.9.2
+14:43:01.616 [Thread-30] DEBUG org.apache.http.wire -  << "HTTP/1.1 200 [\r][\n]"
+14:43:01.616 [Thread-30] DEBUG org.apache.http.wire -  << "Content-Type: application/xml[\r][\n]"
+14:43:01.616 [Thread-30] DEBUG org.apache.http.wire -  << "Content-Length: 0[\r][\n]"
+14:43:01.616 [Thread-30] DEBUG org.apache.http.wire -  << "Date: Sun, 29 Nov 2020 06:43:01 GMT[\r][\n]"
+14:43:01.616 [Thread-30] DEBUG org.apache.http.wire -  << "[\r][\n]"
+14:43:01.616 [Thread-30] DEBUG o.a.h.i.conn.DefaultClientConnection - Receiving response: HTTP/1.1 200 
+14:43:01.616 [Thread-30] DEBUG org.apache.http.headers - << HTTP/1.1 200 
+14:43:01.616 [Thread-30] DEBUG org.apache.http.headers - << Content-Type: application/xml
+14:43:01.616 [Thread-30] DEBUG org.apache.http.headers - << Content-Length: 0
+14:43:01.616 [Thread-30] DEBUG org.apache.http.headers - << Date: Sun, 29 Nov 2020 06:43:01 GMT
+14:43:01.616 [Thread-30] DEBUG o.a.h.impl.client.DefaultHttpClient - Connection can be kept alive indefinitely
+14:43:01.616 [Thread-30] DEBUG c.n.d.s.MonitoredConnectionManager - Released connection is reusable.
+14:43:01.616 [Thread-30] DEBUG c.n.d.shared.NamedConnectionPool - Releasing connection [{}->http://localhost:7000][null]
+14:43:01.616 [Thread-30] DEBUG c.n.d.shared.NamedConnectionPool - Pooling connection [{}->http://localhost:7000][null]; keep alive indefinitely
+14:43:01.616 [Thread-30] DEBUG c.n.d.shared.NamedConnectionPool - Notifying no-one, there are no waiting threads
+14:43:01.616 [Thread-30] DEBUG c.n.d.s.t.j.AbstractJerseyEurekaHttpClient - Jersey HTTP DELETE http://localhost:7000/eureka//apps/SERVICE-GATEWAY/LAPTOP-KPA560AC:service-gateway:7001; statusCode=200
+14:43:01.616 [Thread-30] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_SERVICE-GATEWAY/LAPTOP-KPA560AC:service-gateway:7001 - deregister  status: 200
+14:43:01.621 [Thread-30] DEBUG c.n.d.s.MonitoredConnectionManager - Closing connections idle longer than 0 SECONDS
+14:43:01.621 [Thread-30] DEBUG c.n.d.shared.NamedConnectionPool - Closing connections idle longer than 0 SECONDS
+14:43:01.621 [Thread-30] DEBUG c.n.d.shared.NamedConnectionPool - Closing connection last used @ Sun Nov 29 14:42:54 CST 2020
+14:43:01.622 [Thread-30] DEBUG c.n.d.shared.NamedConnectionPool - Deleting connection [{}->http://localhost:7000][null]
+14:43:01.622 [Thread-30] DEBUG o.a.h.i.conn.DefaultClientConnection - Connection 0.0.0.0:52333<->127.0.0.1:7000 closed
+14:43:01.622 [Thread-30] DEBUG c.n.d.shared.NamedConnectionPool - Closing connection last used @ Sun Nov 29 14:43:01 CST 2020
+14:43:01.622 [Thread-30] DEBUG c.n.d.shared.NamedConnectionPool - Deleting connection [{}->http://localhost:7000][null]
+14:43:01.622 [Thread-30] DEBUG o.a.h.i.conn.DefaultClientConnection - Connection 0.0.0.0:52304<->127.0.0.1:7000 closed
+14:43:01.623 [Thread-30] INFO  c.netflix.discovery.DiscoveryClient - Completed shut down of DiscoveryClient
+14:43:01.623 [Thread-30] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Retrieved dependent beans for bean 'inetUtils': [eurekaInstanceConfigBean, org.springframework.cloud.client.discovery.simple.SimpleDiscoveryClientAutoConfiguration]
+14:43:01.623 [Thread-30] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Retrieved dependent beans for bean 'eurekaInstanceConfigBean': [discoveryClient, eurekaHealthIndicator, org.springframework.cloud.netflix.eureka.config.EurekaClientConfigServerAutoConfiguration, scopedTarget.eurekaApplicationInfoManager, scopedTarget.eurekaClient]
+14:43:01.623 [Thread-30] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Retrieved dependent beans for bean 'discoveryClient': [compositeDiscoveryClient]
+14:43:01.623 [Thread-30] DEBUG o.s.b.f.s.DisposableBeanAdapter - Invoking destroy method 'close' on bean with name 'inetUtils'
+14:43:01.623 [Thread-30] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Retrieved dependent beans for bean 'simpleMeterRegistry': [webMvcMetricsFilter, metricsEndpoint, org.springframework.boot.actuate.autoconfigure.metrics.jdbc.DataSourcePoolMetricsAutoConfiguration$DataSourcePoolMetadataMetricsConfiguration, metricsRestTemplateCustomizer, counterFactory]
+14:43:01.623 [Thread-30] DEBUG o.s.b.f.s.DisposableBeanAdapter - Invoking destroy method 'close' on bean with name 'simpleMeterRegistry'
+14:43:01.624 [Thread-30] DEBUG o.s.b.f.s.DisposableBeanAdapter - Invoking destroy method 'close' on bean with name 'logbackMetrics'
+14:43:01.624 [Thread-30] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Retrieved dependent beans for bean 'refreshScope': [contextRefresher]
+14:43:01.624 [Thread-30] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Retrieved dependent beans for bean 'contextRefresher': [refreshEndpoint, refreshEventListener]
+14:43:01.624 [Thread-30] DEBUG o.s.b.f.s.DisposableBeanAdapter - Invoking destroy() on bean with name 'refreshScope'
+14:43:01.625 [Thread-30] DEBUG o.s.c.a.CommonAnnotationBeanPostProcessor - Invoking destroy method on bean 'scopedTarget.eurekaClient': public synchronized void com.netflix.discovery.DiscoveryClient.shutdown()
+14:43:01.625 [Thread-30] DEBUG o.s.b.f.s.DisposableBeanAdapter - Invoking destroy method 'close' on bean with name 'scopedTarget.dataSource'
+14:43:01.625 [Thread-30] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+14:43:01.625 [Thread-30] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Before shutdown stats (total=10, active=0, idle=10, waiting=0)
+14:43:01.626 [HikariPool-1 connection closer] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Closing connection com.mysql.jdbc.JDBC4Connection@2a5abd3c: (connection evicted)
+14:43:01.627 [HikariPool-1 connection closer] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Closing connection com.mysql.jdbc.JDBC4Connection@388f8a5b: (connection evicted)
+14:43:01.627 [HikariPool-1 connection closer] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Closing connection com.mysql.jdbc.JDBC4Connection@58a07514: (connection evicted)
+14:43:01.628 [HikariPool-1 connection closer] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Closing connection com.mysql.jdbc.JDBC4Connection@7a9f30d8: (connection evicted)
+14:43:01.628 [HikariPool-1 connection closer] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Closing connection com.mysql.jdbc.JDBC4Connection@1d9fa8d8: (connection evicted)
+14:43:01.628 [HikariPool-1 connection closer] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Closing connection com.mysql.jdbc.JDBC4Connection@23cc6e4a: (connection evicted)
+14:43:01.629 [HikariPool-1 connection closer] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Closing connection com.mysql.jdbc.JDBC4Connection@6f18b92e: (connection evicted)
+14:43:01.629 [HikariPool-1 connection closer] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Closing connection com.mysql.jdbc.JDBC4Connection@43296591: (connection evicted)
+14:43:01.629 [HikariPool-1 connection closer] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Closing connection com.mysql.jdbc.JDBC4Connection@3b09ad28: (connection evicted)
+14:43:01.629 [HikariPool-1 connection closer] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Closing connection com.mysql.jdbc.JDBC4Connection@675745c5: (connection evicted)
+14:43:01.630 [Thread-30] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After shutdown stats (total=0, active=0, idle=0, waiting=0)
+14:43:01.630 [Thread-30] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+14:43:01.630 [Thread-30] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Retrieved dependent beans for bean 'org.springframework.boot.autoconfigure.internalCachingMetadataReaderFactory': [org.springframework.context.annotation.internalConfigurationAnnotationProcessor]

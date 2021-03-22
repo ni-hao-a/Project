@@ -1,0 +1,26 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    username: test
+    password: 123456
+    url: jdbc:mysql://1.15.145.243:3306/test?characterEncoding=utf-8
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:7000/eureka/
+
+logging:
+  config: classpath:log/logback-dev.xml
+
+swagger:
+  enable: true    #dev环境激活swagger
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+
+httpconfig:
+  no-check-url:
+    - /api-gateway/gateway/v1/rlzy/login
