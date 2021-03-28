@@ -23,7 +23,7 @@
         <module>ServiceClient-gateway</module>
         <module>ServiceClient-business</module>
         <module>ServiceClient-dictionary</module>
-        <module>ServiceClient-test</module>
+        <module>ServiceClient-core</module>
     </modules>
 
     <properties>

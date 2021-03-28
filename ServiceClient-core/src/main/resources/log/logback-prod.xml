@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- 从高到地低OFF、FATAL、ERROR、WARN、INFO、DEBUG、TRACE、ALL -->
+<!-- 日志级别：TRACE, DEBUG, INFO, WARN, ERROR, ALL 和 OFF -->
 <!-- 日志输出规则根据当前ROOT级别，日志输出时，级别高于root默认的级别时会输出 -->
 <!-- 以下每个配置的filter是过滤掉输出文件里面，会出现高级别文件，依然出现低级别的日志信息，
      通过filter过滤只记录本级别的日志 -->
@@ -10,8 +10,8 @@
 <configuration>
     <property name="LOG_CHARSET" value="UTF-8"/>
     <property name="FILE_MAX_HISTORY" value="30}"/>
-    <property name="LOG_HOME" value="./logs/dictionary}"/>
-    <property name="NAME" value="dictionary"/>
+    <property name="LOG_HOME" value="./logs/core}"/>
+    <property name="NAME" value="core"/>
     <property name="BASE_PATTERN"
               value="%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level- [%thread] %logger{5} - %msg%n"/>
     <property name="SYSTEM_LOG_PATTERN"
@@ -45,10 +45,10 @@
     </appender>
 
     <root level="INFO">
-        <appender-ref ref="CONSOLE_BASE"/>
-        <!--<appender-ref ref="FILE_SYSTEM"/>-->
+        <!--<appender-ref ref="CONSOLE_BASE"/>-->
+        <appender-ref ref="FILE_SYSTEM"/>
     </root>
-    <logger name="com.pc.dictionary" level="DEBUG" additivity="false">
-        <appender-ref ref="CONSOLE_BASE"/>
+    <logger name="com.pc.core" level="DEBUG" additivity="false">
+        <appender-ref ref="FILE_SYSTEM"/>
     </logger>
 </configuration>

@@ -13,13 +13,13 @@ zuul:
   add-host-header: true
   #ignored-patterns: /**/selectOne/**   #忽略某些路径不进行路由
   routes:
-    service-gateway: /api-gateway/**  #网关自己也要走zuul过滤
+    service-gateway: /pc/api-gateway/**  #网关自己也要走zuul过滤
     api-business:
-      path: /api-business/**
+      path: /pc/api-business/**
       serviceId: service-business
       strip-prefix: false
     api-attributes:
-      path: /api-attributes/**
+      path: /pc/api-attributes/**
       serviceId: service-attributes
       strip-prefix: false
 

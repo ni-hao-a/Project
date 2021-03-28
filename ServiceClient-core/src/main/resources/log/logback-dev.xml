@@ -10,8 +10,8 @@
 <configuration>
     <property name="LOG_CHARSET" value="UTF-8"/>
     <property name="FILE_MAX_HISTORY" value="30}"/>
-    <property name="LOG_HOME" value="./logs/dictionary}"/>
-    <property name="NAME" value="dictionary"/>
+    <property name="LOG_HOME" value="./logs/core}"/>
+    <property name="NAME" value="core"/>
     <property name="BASE_PATTERN"
               value="%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level- [%thread] %logger{5} - %msg%n"/>
     <property name="SYSTEM_LOG_PATTERN"
@@ -48,7 +48,7 @@
         <appender-ref ref="CONSOLE_BASE"/>
         <!--<appender-ref ref="FILE_SYSTEM"/>-->
     </root>
-    <logger name="com.pc.dictionary" level="DEBUG" additivity="false">
+    <logger name="com.pc.core" level="DEBUG" additivity="false">
         <appender-ref ref="CONSOLE_BASE"/>
     </logger>
 </configuration>

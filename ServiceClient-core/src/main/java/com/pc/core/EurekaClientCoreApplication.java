@@ -1,4 +1,4 @@
-package com.pc.test;
+package com.pc.core;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
@@ -15,9 +15,9 @@ import org.springframework.web.bind.annotation.RestController;
 @SpringBootApplication
 @RestController
 @EnableConfigServer
-public class EurekaClientFourApplication extends SpringBootServletInitializer {
+public class EurekaClientCoreApplication extends SpringBootServletInitializer {
     public static void main(String[] args) {
-        SpringApplication.run(EurekaClientFourApplication.class, args);
+        SpringApplication.run(EurekaClientCoreApplication.class, args);
     }
 
     @Value("${server.port}")

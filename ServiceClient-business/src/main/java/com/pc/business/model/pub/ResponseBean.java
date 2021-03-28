@@ -1,4 +1,4 @@
-package com.pc.business.model;
+package com.pc.business.model.pub;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -8,4 +8,5 @@ import lombok.Setter;
 public class ResponseBean {
     private int code;
     private String message;
+    private Object data;
 }

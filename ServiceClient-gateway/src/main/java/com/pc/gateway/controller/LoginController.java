@@ -2,21 +2,22 @@ package com.pc.gateway.controller;
 
 import com.pc.gateway.bean.Result;
 import com.pc.gateway.bean.UserInfoBean;
-import com.pc.gateway.enums.ResultEnum;
 import com.pc.gateway.mapper.LoginMapper;
 import com.pc.gateway.utils.ResultUtil;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 @RestController
 @Slf4j
-@RequestMapping(value = "/gateway/v1/rlzy", produces = "application/json")
+@RequestMapping(value = "/pc/api-gateway/gateway/v1/rlzy", produces = "application/json")
 public class LoginController {
 
     @Autowired

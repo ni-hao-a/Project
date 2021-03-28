@@ -1,8 +1,7 @@
 package com.pc.business.controller;
 
-import com.github.pagehelper.PageInfo;
-import com.pc.business.model.permodel.User;
 import com.pc.business.model.permodel.UserReq;
+import com.pc.business.model.pub.ResponseBean;
 import com.pc.business.service.PersonnelInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -17,7 +16,7 @@ import javax.validation.Valid;
  * 人员信息
  */
 @RestController
-@RequestMapping(value = "/api-business/business/v1/rlzy", produces = {"application/json;charset=UTF-8"})
+@RequestMapping(value = "/pc/api-business/business/v1/rlzy", produces = {"application/json;charset=UTF-8"})
 public class PersonnelInfoController {
 
     @Autowired
@@ -31,7 +30,7 @@ public class PersonnelInfoController {
      * @return 用户信息列表
      */
     @RequestMapping(value = "/getPersonnelInfo", method = RequestMethod.POST)
-    public PageInfo<User> getPersonnelInfo(@Valid @RequestBody UserReq req) {
+    public ResponseBean getPersonnelInfo(@Valid @RequestBody UserReq req) {
         String token = request.getHeader("token");
         return infoService.getPersonnelInfo(token, req);
     }
