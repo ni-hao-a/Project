@@ -9,12 +9,20 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.pc</groupId>
-    <artifactId>ServiceCenter</artifactId>
+    <artifactId>ServiceCore</artifactId>
     <packaging>jar</packaging>
-    <name>ServiceCenter</name>
+    <name>ServiceCore</name>
 
-    <build>
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-config-server</artifactId>
+            <version>2.0.0.RELEASE</version>
+            <scope>compile</scope>
+        </dependency>
+    </dependencies>
+
+<!--    <build>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -39,7 +47,9 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>com.pc.center.EurekaServerApplication</mainClass>
+                    <mainClass>com.pc.core.EurekaClientFourApplication</mainClass>
+                    &lt;!&ndash;打包成第三方依赖包，作为公共资源jar使用&ndash;&gt;
+                    <classifier>exec</classifier>
                 </configuration>
                 <executions>
                     <execution>
@@ -50,6 +60,6 @@
                 </executions>
             </plugin>
         </plugins>
-        <finalName>ServiceCenter</finalName>
-    </build>
+        <finalName>ServiceCore</finalName>
+    </build>-->
 </project>
