@@ -6,7 +6,7 @@ import com.pc.core.constants.HttpStatus;
 import com.pc.core.utils.ResponseUtil;
 import com.pc.core.utils.ServletUtils;
 import com.pc.core.utils.StringUtils;
-import com.pc.gateway.bean.LoginUser;
+import com.pc.model.rlzy.login.LoginUser;
 import com.pc.gateway.manager.AsyncManager;
 import com.pc.gateway.manager.factory.AsyncFactory;
 import com.pc.gateway.utils.service.TokenService;

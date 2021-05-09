@@ -1,8 +1,8 @@
 package com.pc.business.service;
 
-import com.pc.business.model.system.SysMenu;
-import com.pc.business.model.system.TreeSelect;
 import com.pc.core.domain.vo.RouterVo;
+import com.pc.model.rlzy.entity.SysMenu;
+import com.pc.model.rlzy.entity.TreeSelect;
 
 import java.util.List;
 import java.util.Set;

@@ -1,9 +1,9 @@
 package com.pc.business.service.impl;
 
-import com.pc.business.model.system.LoginUser;
-import com.pc.business.model.system.SysUserOnline;
 import com.pc.business.service.ISysUserOnlineService;
 import com.pc.core.utils.StringUtils;
+import com.pc.model.rlzy.entity.SysUserOnline;
+import com.pc.model.rlzy.login.LoginUser;
 import org.springframework.stereotype.Service;
 
 /**

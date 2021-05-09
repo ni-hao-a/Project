@@ -5,7 +5,7 @@ import com.auth0.jwt.JWTVerifier;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.interfaces.Claim;
 import com.auth0.jwt.interfaces.DecodedJWT;
-import com.pc.gateway.bean.UserInfoBean;
+import com.pc.model.rlzy.user.UserInfoBean;
 import com.pc.gateway.config.SystemConfig;
 import com.pc.gateway.mapper.LoginMapper;
 import lombok.extern.slf4j.Slf4j;
@@ -24,8 +24,6 @@ public class JwtUtil {
 
     @Autowired
     private SystemConfig systemConfig;
-    @Autowired
-    private RedisCache redisCache;
     @Autowired
     private LoginMapper loginMapper;
 

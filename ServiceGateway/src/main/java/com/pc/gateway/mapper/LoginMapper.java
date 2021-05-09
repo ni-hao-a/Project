@@ -1,6 +1,6 @@
 package com.pc.gateway.mapper;
 
-import com.pc.gateway.bean.UserInfoBean;
+import com.pc.model.rlzy.user.UserInfoBean;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Component;
 

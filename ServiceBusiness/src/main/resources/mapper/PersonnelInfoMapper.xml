@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.pc.business.mapper.PersonnelInfoMapper">
-    <select id="getPersonnelInfo" resultType="com.pc.business.model.permodel.User">
+    <select id="getPersonnelInfo" resultType="com.pc.model.rlzy.user.UserInfo">
     SELECT
 	  YGBH empCode,
 	  PIMPERSONNAME empName,

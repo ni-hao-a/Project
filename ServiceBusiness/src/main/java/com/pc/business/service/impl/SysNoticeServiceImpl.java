@@ -1,8 +1,8 @@
 package com.pc.business.service.impl;
 
 import com.pc.business.mapper.SysNoticeMapper;
-import com.pc.business.model.system.SysNotice;
 import com.pc.business.service.ISysNoticeService;
+import com.pc.model.rlzy.entity.SysNotice;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

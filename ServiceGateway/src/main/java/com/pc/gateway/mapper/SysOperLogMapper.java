@@ -1,6 +1,6 @@
 package com.pc.gateway.mapper;
 
-import com.pc.gateway.bean.SysOperLog;
+import com.pc.model.rlzy.entity.SysOperLog;
 
 import java.util.List;
 

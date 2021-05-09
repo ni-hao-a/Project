@@ -1,7 +1,7 @@
 package com.pc.business.mapper;
 
 
-import com.pc.business.model.system.SysNotice;
+import com.pc.model.rlzy.entity.SysNotice;
 
 import java.util.List;
 

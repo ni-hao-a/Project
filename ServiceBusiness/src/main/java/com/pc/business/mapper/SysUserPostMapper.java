@@ -1,6 +1,6 @@
 package com.pc.business.mapper;
 
-import com.pc.business.model.system.SysUserPost;
+import com.pc.model.rlzy.entity.SysUserPost;
 
 import java.util.List;
 

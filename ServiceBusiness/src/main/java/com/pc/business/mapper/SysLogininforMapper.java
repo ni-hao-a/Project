@@ -1,6 +1,6 @@
 package com.pc.business.mapper;
 
-import com.pc.business.model.system.SysLogininfor;
+import com.pc.model.rlzy.entity.SysLogininfor;
 
 import java.util.List;
 

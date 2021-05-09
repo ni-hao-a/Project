@@ -1,7 +1,7 @@
 package com.pc.gateway.utils;
 
 import com.pc.core.constants.HttpStatus;
-import com.pc.gateway.bean.LoginUser;
+import com.pc.model.rlzy.login.LoginUser;
 import com.pc.gateway.exception.CustomException;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;

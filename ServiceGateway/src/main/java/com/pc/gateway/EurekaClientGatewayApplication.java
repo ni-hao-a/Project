@@ -1,6 +1,7 @@
 package com.pc.gateway;
 
 import com.pc.core.aspect.AspectLog;
+import com.pc.core.redis.RedisCache;
 import com.pc.core.spring.SpringUtils;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Value;
@@ -32,7 +33,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @SpringBootApplication
 @RestController
 @EnableZuulProxy
-@Import({AspectLog.class})
+@Import({AspectLog.class, RedisCache.class})
 @MapperScan("com.pc.gateway.mapper")
 @EnableSwagger2
 @EnableFeignClients

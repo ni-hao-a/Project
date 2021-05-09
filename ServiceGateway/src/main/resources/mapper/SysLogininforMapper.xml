@@ -2,12 +2,12 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.pc.gateway.mapper.SysLogininforMapper">
 
-	<insert id="insertLogininfor" parameterType="com.pc.gateway.bean.SysLogininfor">
+	<insert id="insertLogininfor" parameterType="com.pc.model.rlzy.entity.SysLogininfor">
 		insert into r_sys_logininfor (user_name, status, ipaddr, login_location, browser, os, msg, login_time)
 		values (#{userName}, #{status}, #{ipaddr}, #{loginLocation}, #{browser}, #{os}, #{msg}, sysdate())
 	</insert>
 	
-	<select id="selectLogininforList" parameterType="com.pc.gateway.bean.SysLogininfor" resultType="com.pc.gateway.bean.SysLogininfor">
+	<select id="selectLogininforList" parameterType="com.pc.model.rlzy.entity.SysLogininfor" resultType="com.pc.model.rlzy.entity.SysLogininfor">
 		select
 		info_id infoId,
 		user_name userName,

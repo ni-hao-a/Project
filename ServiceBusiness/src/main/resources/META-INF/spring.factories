@@ -1,0 +1,12 @@
+# Application Context Initializers customize classes
+#context.initializer.classes=\
+
+# Application Context Initializers
+#org.springframework.context.ApplicationContextInitializer=\
+
+
+# Application Context EnableAutoConfiguration
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.pc.core.config.FeignConfig,\
+  com.pc.core.redis.RedisCacheConfig,\
+  com.pc.core.redis.RedisConfig

@@ -4,7 +4,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.pc.business.mapper.SysUserMapper">
 
-	<resultMap type="com.pc.business.model.system.SysUser" id="SysUserResult">
+	<resultMap type="com.pc.model.rlzy.entity.SysUser" id="SysUserResult">
 		<id     property="userId"       column="user_id"      />
 		<result property="deptId"       column="dept_id"      />
 		<result property="userName"     column="user_name"    />
@@ -23,11 +23,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result property="updateBy"     column="update_by"    />
 		<result property="updateTime"   column="update_time"  />
 		<result property="remark"       column="remark"       />
-		<association property="dept"    column="dept_id" javaType="com.pc.business.model.system.SysDept" resultMap="deptResult" />
+		<association property="dept"    column="dept_id" javaType="com.pc.model.rlzy.entity.SysDept" resultMap="deptResult" />
 		<collection  property="roles"   javaType="java.util.List"        resultMap="RoleResult" />
 	</resultMap>
 	
-	<resultMap id="deptResult" type="com.pc.business.model.system.SysDept">
+	<resultMap id="deptResult" type="com.pc.model.rlzy.entity.SysDept">
 		<id     property="deptId"   column="dept_id"     />
 		<result property="parentId" column="parent_id"   />
 		<result property="deptName" column="dept_name"   />
@@ -36,7 +36,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result property="status"   column="dept_status" />
 	</resultMap>
 	
-	<resultMap id="RoleResult" type="com.pc.business.model.system.SysRole">
+	<resultMap id="RoleResult" type="com.pc.model.rlzy.entity.SysRole">
 		<id     property="roleId"       column="role_id"        />
 		<result property="roleName"     column="role_name"      />
 		<result property="roleKey"      column="role_key"       />
@@ -55,7 +55,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		    left join r_sys_role r on r.role_id = ur.role_id
     </sql>
     
-    <select id="selectUserList" parameterType="com.pc.business.model.system.SysUser" resultMap="SysUserResult">
+    <select id="selectUserList" parameterType="com.pc.model.rlzy.entity.SysUser" resultMap="SysUserResult">
 		select u.user_id, u.dept_id, u.nick_name, u.user_name, u.email, u.avatar, u.phonenumber, u.password, u.sex, u.status, u.del_flag, u.login_ip, u.login_date, u.create_by, u.create_time, u.remark, d.dept_name, d.leader from sys_user u
 		left join r_sys_dept d on u.dept_id = d.dept_id
 		where u.del_flag = '0'
@@ -103,7 +103,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select user_id, email from r_sys_user where email = #{email} limit 1
 	</select>
 	
-	<insert id="insertUser" parameterType="com.pc.business.model.system.SysUser" useGeneratedKeys="true" keyProperty="userId">
+	<insert id="insertUser" parameterType="com.pc.model.rlzy.entity.SysUser" useGeneratedKeys="true" keyProperty="userId">
  		insert into r_sys_user(
  			<if test="userId != null and userId != 0">user_id,</if>
  			<if test="deptId != null and deptId != 0">dept_id,</if>
@@ -135,7 +135,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  		)
 	</insert>
 	
-	<update id="updateUser" parameterType="com.pc.business.model.system.SysUser">
+	<update id="updateUser" parameterType="com.pc.model.rlzy.entity.SysUser">
  		update r_sys_user
  		<set>
  			<if test="deptId != null and deptId != 0">dept_id = #{deptId},</if>
@@ -156,15 +156,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  		where user_id = #{userId}
 	</update>
 	
-	<update id="updateUserStatus" parameterType="com.pc.business.model.system.SysUser">
+	<update id="updateUserStatus" parameterType="com.pc.model.rlzy.entity.SysUser">
  		update r_sys_user set status = #{status} where user_id = #{userId}
 	</update>
 	
-	<update id="updateUserAvatar" parameterType="com.pc.business.model.system.SysUser">
+	<update id="updateUserAvatar" parameterType="com.pc.model.rlzy.entity.SysUser">
  		update r_sys_user set avatar = #{avatar} where user_name = #{userName}
 	</update>
 	
-	<update id="resetUserPwd" parameterType="com.pc.business.model.system.SysUser">
+	<update id="resetUserPwd" parameterType="com.pc.model.rlzy.entity.SysUser">
  		update r_sys_user set password = #{password} where user_name = #{userName}
 	</update>
 	

@@ -1,6 +1,6 @@
 package com.pc.business.mapper;
 
-import com.pc.business.model.system.SysDictData;
+import com.pc.model.rlzy.entity.SysDictData;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;

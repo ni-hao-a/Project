@@ -1,7 +1,7 @@
 package com.pc.business.service;
 
-import com.pc.business.model.permodel.UserReq;
-import com.pc.business.model.pub.ResponseBean;
+import com.pc.model.rlzy.req.UserReq;
+import com.pc.core.model.ResponseBean;
 
 public interface PersonnelInfoService {
 

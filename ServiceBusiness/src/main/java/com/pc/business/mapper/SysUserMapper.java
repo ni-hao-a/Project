@@ -1,6 +1,6 @@
 package com.pc.business.mapper;
 
-import com.pc.business.model.system.SysUser;
+import com.pc.model.rlzy.entity.SysUser;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;

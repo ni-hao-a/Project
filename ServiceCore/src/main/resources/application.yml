@@ -1,12 +1,6 @@
-server:
-  port: 7005
-spring:
-  profiles:
-    active: dev
-
 system:
   # 名称
-  name: RuoYi
+  name: qhl
   # 版本
   version: 3.4.0
   # 版权年份

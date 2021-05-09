@@ -1,6 +1,6 @@
 package com.pc.business.mapper;
 
-import com.pc.business.model.permodel.User;
+import com.pc.model.rlzy.user.UserInfo;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -8,5 +8,5 @@ import java.util.List;
 @Repository
 public interface PersonnelInfoMapper {
 
-    List<User> getPersonnelInfo();
+    List<UserInfo> getPersonnelInfo();
 }

@@ -6,9 +6,9 @@ import com.pc.core.utils.IpUtils;
 import com.pc.core.utils.ServletUtils;
 import com.pc.core.utils.StringUtils;
 import com.pc.core.utils.uuid.IdUtils;
-import com.pc.gateway.bean.LoginUser;
+import com.pc.model.rlzy.login.LoginUser;
 import com.pc.gateway.config.SystemConfig;
-import com.pc.gateway.utils.RedisCache;
+import com.pc.core.redis.RedisCache;
 import eu.bitwalker.useragentutils.UserAgent;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
@@ -47,10 +47,8 @@ public class TokenService {
         // 获取请求携带的令牌
         String token = getToken(request);
         if (StringUtils.isNotEmpty(token)) {
-            Claims claims = parseToken(token);
             // 解析对应的权限以及用户信息
-            String uuid = (String) claims.get(Constants.TOKEN_PREFIX);
-            String userKey = getTokenKey(uuid);
+            String userKey = getKeyByToken(token);
             return redisCache.getCacheObject(userKey);
         }
         return null;
@@ -71,7 +69,9 @@ public class TokenService {
     public void delLoginUser(String token) {
         if (StringUtils.isNotEmpty(token)) {
             String userKey = getTokenKey(token);
-            redisCache.deleteObject(userKey);
+            String authKey = getAuthKey(token);
+            redisCache.deleteObject(userKey); // 删除用户信息
+            redisCache.deleteObject(authKey);// 删除用户认证信息
         }
     }
 
@@ -114,9 +114,11 @@ public class TokenService {
     public void refreshToken(LoginUser loginUser) {
         loginUser.setLoginTime(System.currentTimeMillis());
         loginUser.setExpireTime(loginUser.getLoginTime() + systemConfig.getExpireTime() * MILLIS_MINUTE);
-        // 根据uuid将loginUser缓存
+        // 根据uuid将loginUser缓存，只生成一次
         String userKey = getTokenKey(loginUser.getToken());
+        String authKey = getAuthKey(loginUser.getToken());
         redisCache.setCacheObject(userKey, loginUser, systemConfig.getExpireTime(), TimeUnit.MINUTES);
+        redisCache.setCacheObject(authKey, loginUser.getToken(), systemConfig.getExpireTime(), TimeUnit.MINUTES);
     }
 
     /**
@@ -171,6 +173,28 @@ public class TokenService {
     }
 
     /**
+     * 从令牌中获取token的key
+     *
+     * @param token 令牌
+     * @return 用户名
+     */
+    public String getKeyByToken(String token) {
+        Claims claims = parseToken(token);
+        return Constants.TOKEN_PREFIX + claims.get(Constants.TOKEN_PREFIX);
+    }
+
+    /**
+     * 从令牌中获取身份验证的key
+     *
+     * @param token 令牌
+     * @return 用户名
+     */
+    public String getAuthKeyByToken(String token) {
+        Claims claims = parseToken(token);
+        return Constants.AUTH_PREFIX + claims.get(Constants.TOKEN_PREFIX);
+    }
+
+    /**
      * 获取请求token
      *
      * @param request
@@ -186,6 +210,10 @@ public class TokenService {
 
     private String getTokenKey(String uuid) {
         return Constants.TOKEN_PREFIX + uuid;
+    }
+
+    private String getAuthKey(String uuid) {
+        return Constants.AUTH_PREFIX + uuid;
     }
 
 }

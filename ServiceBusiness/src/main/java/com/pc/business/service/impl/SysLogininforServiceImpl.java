@@ -1,8 +1,8 @@
 package com.pc.business.service.impl;
 
 import com.pc.business.mapper.SysLogininforMapper;
-import com.pc.business.model.system.SysLogininfor;
 import com.pc.business.service.ISysLogininforService;
+import com.pc.model.rlzy.entity.SysLogininfor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

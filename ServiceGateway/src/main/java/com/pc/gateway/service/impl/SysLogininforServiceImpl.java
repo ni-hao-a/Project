@@ -1,9 +1,9 @@
 package com.pc.gateway.service.impl;
 
 
-import com.pc.gateway.bean.SysLogininfor;
 import com.pc.gateway.mapper.SysLogininforMapper;
 import com.pc.gateway.service.ISysLogininforService;
+import com.pc.model.rlzy.entity.SysLogininfor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

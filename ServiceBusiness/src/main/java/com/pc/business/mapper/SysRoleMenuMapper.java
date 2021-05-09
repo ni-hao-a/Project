@@ -1,6 +1,6 @@
 package com.pc.business.mapper;
 
-import com.pc.business.model.system.SysRoleMenu;
+import com.pc.model.rlzy.entity.SysRoleMenu;
 
 import java.util.List;
 

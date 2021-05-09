@@ -4,12 +4,12 @@ import com.pc.business.contants.UserConstants;
 import com.pc.business.exception.CustomException;
 import com.pc.business.mapper.SysDeptMapper;
 import com.pc.business.mapper.SysRoleMapper;
-import com.pc.business.model.system.SysDept;
-import com.pc.business.model.system.SysRole;
-import com.pc.business.model.system.TreeSelect;
 import com.pc.business.service.ISysDeptService;
 import com.pc.core.annotation.DataScope;
 import com.pc.core.utils.StringUtils;
+import com.pc.model.rlzy.entity.SysDept;
+import com.pc.model.rlzy.entity.SysRole;
+import com.pc.model.rlzy.entity.TreeSelect;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

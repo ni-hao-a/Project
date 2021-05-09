@@ -3,18 +3,24 @@ package com.pc.gateway.controller;
 import com.google.code.kaptcha.Producer;
 import com.pc.core.exception.ResponseCodeEnum;
 import com.pc.core.model.ResponseBean;
+import com.pc.core.redis.RedisCache;
 import com.pc.core.utils.Base64.Base64s;
 import com.pc.core.utils.ResponseUtil;
+import com.pc.core.utils.ServletUtils;
 import com.pc.core.utils.uuid.EntryUtil;
-import com.pc.gateway.bean.LoginUser;
-import com.pc.gateway.bean.UserInfoBean;
-import com.pc.gateway.bean.VerificationCodeBean;
 import com.pc.gateway.contants.RedisContants;
 import com.pc.gateway.mapper.LoginMapper;
 import com.pc.gateway.utils.GenerateVerificationCodeUtil;
 import com.pc.gateway.utils.JwtUtil;
-import com.pc.gateway.utils.RedisCache;
+import com.pc.gateway.utils.feignService.RSysMenuFeignService;
+import com.pc.gateway.utils.service.SysPermissionService;
 import com.pc.gateway.utils.service.TokenService;
+import com.pc.model.rlzy.User;
+import com.pc.model.rlzy.entity.SysMenu;
+import com.pc.model.rlzy.entity.SysUser;
+import com.pc.model.rlzy.entity.VerificationCodeBean;
+import com.pc.model.rlzy.login.LoginUser;
+import com.pc.model.rlzy.user.UserInfoBean;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +29,7 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
+import org.springframework.stereotype.Service;
 import org.springframework.util.FastByteArrayOutputStream;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -37,11 +44,14 @@ import javax.validation.Valid;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 @RestController
 @Slf4j
+@Service
 @RequestMapping(value = "/pc/base/gateway/v1/rlzy", produces = "application/json")
 public class LoginController {
 
@@ -55,6 +65,10 @@ public class LoginController {
     private JwtUtil jwtUtil;
     @Autowired
     private TokenService service;
+    @Autowired
+    private SysPermissionService permissionService;
+    @Autowired
+    private RSysMenuFeignService menuFeignService;
     @Resource
     private AuthenticationManager authenticationManager;
 
@@ -104,9 +118,14 @@ public class LoginController {
                 return ResponseUtil.error(ResponseCodeEnum.USERNAME_OR_PWD_IS_ERROR);
             }
         }
-        LoginUser user = (LoginUser) authentication.getPrincipal();
+        LoginUser loginUser = (LoginUser) authentication.getPrincipal();
         // 生成token
-        user.setToken(service.createToken(user));
+        String token = service.createToken(loginUser);
+        loginUser.setToken(token);
+        User user = new User();
+        user.setToken(token);
+        user.setUserId(loginUser.getUser().getUserId());
+        user.setUserName(loginUser.getUser().getUserName());
         return ResponseUtil.success(user);
     }
 
@@ -118,21 +137,10 @@ public class LoginController {
         return ResponseUtil.success(null);
     }
 
-    @ApiOperation("用户验证")
-    @RequestMapping(value = "/userAuth", method = RequestMethod.POST)
-    public ResponseBean userAuth() throws Exception {
-        // 验证令牌
-        UserInfoBean user = jwtUtil.getUserInfo(request.getHeader(("token")));
-        if (null == user) {
-            return ResponseUtil.error(ResponseCodeEnum.USER_VER_FAILURE);
-        }
-        return ResponseUtil.success(user);
-    }
-
-
     /**
      * 生成验证码
      */
+    @ApiOperation("生成验证码")
     @RequestMapping(value = "/captchaImage", method = RequestMethod.GET)
     public ResponseBean getCode(HttpServletResponse response) throws IOException {
         // 保存验证码信息
@@ -205,4 +213,39 @@ public class LoginController {
         codeMap.put("img", Base64s.encode(os.toByteArray()));
         return ResponseUtil.success(codeMap);
     }
+
+    /**
+     * 获取用户基本信息
+     *
+     * @return ResponseBean
+     */
+    @RequestMapping(value = "/getInfo", method = RequestMethod.POST)
+    public ResponseBean getInfomation() {
+        LoginUser loginUser = service.getLoginUser(ServletUtils.getRequest());
+        SysUser user = loginUser.getUser();
+        // 角色集合
+        Set<String> roles = permissionService.getRolePermission(user);
+        // 权限集合
+        Set<String> permissions = permissionService.getMenuPermission(user);
+        Map<String, Object> codeMap = new HashMap<>();
+        codeMap.put("user", user);
+        codeMap.put("roles", roles);
+        codeMap.put("permissions", permissions);
+        return ResponseUtil.success(codeMap);
+    }
+
+    /**
+     * 获取路由
+     *
+     * @return ResponseBean
+     */
+    @RequestMapping(value = "/getRoute", method = RequestMethod.POST)
+    public ResponseBean getRoute() {
+        LoginUser loginUser = service.getLoginUser(ServletUtils.getRequest());
+        // 用户信息
+        SysUser user = loginUser.getUser();
+        List<SysMenu> menus = menuFeignService.selectMenuTreeByUserId(user.getUserId());
+        return ResponseUtil.success(menus);
+    }
+
 }

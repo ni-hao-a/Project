@@ -1,7 +1,7 @@
 package com.pc.business.mapper;
 
 
-import com.pc.business.model.system.SysConfig;
+import com.pc.model.rlzy.entity.SysConfig;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;

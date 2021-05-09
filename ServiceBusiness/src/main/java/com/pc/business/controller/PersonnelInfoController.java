@@ -1,7 +1,7 @@
 package com.pc.business.controller;
 
-import com.pc.business.model.permodel.UserReq;
-import com.pc.business.model.pub.ResponseBean;
+import com.pc.model.rlzy.req.UserReq;
+import com.pc.core.model.ResponseBean;
 import com.pc.business.service.PersonnelInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;

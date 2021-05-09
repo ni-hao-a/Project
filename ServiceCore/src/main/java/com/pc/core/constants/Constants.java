@@ -78,6 +78,11 @@ public class Constants {
     public static final String TOKEN_PREFIX = "Bearer ";
 
     /**
+     * 身份验证key前缀
+     */
+    public static final String AUTH_PREFIX = "Auth ";
+
+    /**
      * 令牌前缀
      */
     public static final String LOGIN_USER_KEY = "login_user_key";
@@ -121,4 +126,14 @@ public class Constants {
      * 资源映射路径 前缀
      */
     public static final String RESOURCE_PREFIX = "/profile";
+
+    /**
+     * 用户凭证验证
+     */
+    public static final String AUTHORIZATION = "Authorization";
+
+    /**
+     * 判断是否内部feign调用
+     */
+    public static final String IS_FEIGN = "isFeign";
 }

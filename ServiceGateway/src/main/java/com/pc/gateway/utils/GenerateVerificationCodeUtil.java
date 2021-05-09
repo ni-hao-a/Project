@@ -1,6 +1,6 @@
 package com.pc.gateway.utils;
 
-import com.pc.gateway.bean.VerificationCodeBean;
+import com.pc.model.rlzy.entity.VerificationCodeBean;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;

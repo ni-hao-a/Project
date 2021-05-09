@@ -14,9 +14,16 @@
     <name>ServiceGateway</name>
 
     <dependencies>
+        <!--公共工具-->
         <dependency>
             <groupId>com.qhl.service</groupId>
             <artifactId>ServiceCore</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <!--公共实体-->
+        <dependency>
+            <groupId>com.qhl.service</groupId>
+            <artifactId>ServiceModel</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
         <!--验证码 -->

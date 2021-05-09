@@ -1,7 +1,7 @@
 package com.pc.business.service;
 
-import com.pc.business.model.system.LoginUser;
-import com.pc.business.model.system.SysUserOnline;
+import com.pc.model.rlzy.login.LoginUser;
+import com.pc.model.rlzy.entity.SysUserOnline;
 
 /**
  * 在线用户 服务层

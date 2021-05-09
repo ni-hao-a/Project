@@ -5,3 +5,8 @@ spring:
     active: dev
   application:
     name: service-business
+
+cache: #缓存配置
+  #自定配置缓存key和value，样例：'{"name": 123, "sex": 123}'
+  maps:
+  expired: 800  #自定义默认过期时间

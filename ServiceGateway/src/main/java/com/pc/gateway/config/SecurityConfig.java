@@ -29,7 +29,6 @@ import org.springframework.web.filter.CorsFilter;
 @EnableGlobalMethodSecurity(prePostEnabled = true, securedEnabled = true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-    private static String[] arr = {"1","2"};
     /**
      * 自定义用户认证逻辑
      */

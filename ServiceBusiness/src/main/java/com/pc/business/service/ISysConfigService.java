@@ -1,6 +1,6 @@
 package com.pc.business.service;
 
-import com.pc.business.model.system.SysConfig;
+import com.pc.model.rlzy.entity.SysConfig;
 
 import java.util.List;
 

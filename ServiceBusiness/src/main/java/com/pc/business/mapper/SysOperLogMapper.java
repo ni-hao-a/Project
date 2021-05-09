@@ -1,6 +1,6 @@
 package com.pc.business.mapper;
 
-import com.pc.business.model.system.SysOperLog;
+import com.pc.model.rlzy.entity.SysOperLog;
 import java.util.List;
 
 /**

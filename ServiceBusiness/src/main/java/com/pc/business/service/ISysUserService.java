@@ -1,6 +1,6 @@
 package com.pc.business.service;
 
-import com.pc.business.model.system.SysUser;
+import com.pc.model.rlzy.entity.SysUser;
 
 import java.util.List;
 

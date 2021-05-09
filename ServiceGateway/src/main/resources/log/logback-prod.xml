@@ -15,7 +15,7 @@
     <property name="BASE_PATTERN"
               value="%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level- [%thread] %logger{5} - %msg%n"/>
     <property name="SYSTEM_LOG_PATTERN"
-              value=" %d{yyyy-MM-dd HH:mm:ss.SSS} |%-5level|[%thread]%logger{5}|%X{oprSeq}|%X{terminalVersion}|%X{phoneModel}|%X{oprCode}|%X{MSG}|%msg%n"/>
+              value=" %d{yyyy-MM-dd HH:mm:ss.SSS} |%X{zuulPath}| |%-5level|[%thread]%logger{5}|%X{oprSeq}|%X{terminalVersion}|%X{phoneModel}|%X{oprCode}|%X{MSG}|%msg%n"/>
     <!--日志基础配置~控制台打印-->
     <appender name="CONSOLE_BASE" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>

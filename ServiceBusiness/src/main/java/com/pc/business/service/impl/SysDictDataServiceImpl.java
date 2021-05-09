@@ -1,7 +1,7 @@
 package com.pc.business.service.impl;
 
 import com.pc.business.mapper.SysDictDataMapper;
-import com.pc.business.model.system.SysDictData;
+import com.pc.model.rlzy.entity.SysDictData;
 import com.pc.business.service.ISysDictDataService;
 import com.pc.business.utils.DictUtils;
 import org.springframework.beans.factory.annotation.Autowired;

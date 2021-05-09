@@ -1,13 +1,11 @@
 package com.pc.business.controller;
 
-import com.pc.business.model.pub.ResponseBean;
-import com.pc.business.utils.ResponseUtil;
-import org.springframework.web.bind.annotation.RequestBody;
+import com.pc.core.model.ResponseBean;
+import com.pc.core.utils.ResponseUtil;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.validation.Valid;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -26,9 +24,9 @@ public class MenuSystemController {
     @RequestMapping(value = "/getInfo", method = RequestMethod.POST)
     public ResponseBean getPersonnelInfo() {
         Map map = new HashMap();
-        map.put("permissions",null);
-        map.put("roles",null);
-        map.put("user",null);
+        map.put("permissions", null);
+        map.put("roles", null);
+        map.put("user", null);
         ResponseBean resp = new ResponseBean();
         resp.setData(map);
         return ResponseUtil.success(resp);

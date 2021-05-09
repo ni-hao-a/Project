@@ -1,7 +1,7 @@
 package com.pc.business.service;
 
-import com.pc.business.model.system.SysDept;
-import com.pc.business.model.system.TreeSelect;
+import com.pc.model.rlzy.entity.SysDept;
+import com.pc.model.rlzy.entity.TreeSelect;
 import java.util.List;
 
 /**

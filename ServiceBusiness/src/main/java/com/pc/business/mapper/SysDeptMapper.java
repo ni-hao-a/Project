@@ -1,6 +1,6 @@
 package com.pc.business.mapper;
 
-import com.pc.business.model.system.SysDept;
+import com.pc.model.rlzy.entity.SysDept;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 

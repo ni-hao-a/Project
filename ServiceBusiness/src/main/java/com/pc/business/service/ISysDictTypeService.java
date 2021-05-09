@@ -1,7 +1,7 @@
 package com.pc.business.service;
 
-import com.pc.business.model.system.SysDictData;
-import com.pc.business.model.system.SysDictType;
+import com.pc.model.rlzy.entity.SysDictData;
+import com.pc.model.rlzy.entity.SysDictType;
 
 import java.util.List;
 

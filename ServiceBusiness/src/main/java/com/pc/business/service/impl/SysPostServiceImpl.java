@@ -4,9 +4,9 @@ import com.pc.business.contants.UserConstants;
 import com.pc.business.exception.CustomException;
 import com.pc.business.mapper.SysPostMapper;
 import com.pc.business.mapper.SysUserPostMapper;
-import com.pc.business.model.system.SysPost;
 import com.pc.business.service.ISysPostService;
 import com.pc.core.utils.StringUtils;
+import com.pc.model.rlzy.entity.SysPost;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

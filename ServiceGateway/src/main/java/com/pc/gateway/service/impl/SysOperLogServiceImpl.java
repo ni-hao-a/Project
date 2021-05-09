@@ -1,6 +1,6 @@
 package com.pc.gateway.service.impl;
 
-import com.pc.gateway.bean.SysOperLog;
+import com.pc.model.rlzy.entity.SysOperLog;
 import com.pc.gateway.mapper.SysOperLogMapper;
 import com.pc.gateway.service.ISysOperLogService;
 import org.springframework.beans.factory.annotation.Autowired;

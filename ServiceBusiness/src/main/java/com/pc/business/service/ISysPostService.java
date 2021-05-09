@@ -1,6 +1,6 @@
 package com.pc.business.service;
 
-import com.pc.business.model.system.SysPost;
+import com.pc.model.rlzy.entity.SysPost;
 
 import java.util.List;
 

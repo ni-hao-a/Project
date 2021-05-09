@@ -4,14 +4,16 @@ import com.pc.business.contants.UserConstants;
 import com.pc.business.mapper.SysMenuMapper;
 import com.pc.business.mapper.SysRoleMapper;
 import com.pc.business.mapper.SysRoleMenuMapper;
-import com.pc.business.model.system.SysMenu;
-import com.pc.business.model.system.SysRole;
-import com.pc.business.model.system.SysUser;
-import com.pc.business.model.system.TreeSelect;
 import com.pc.business.service.ISysMenuService;
+import com.pc.business.utils.feignService.RSysUserFeignService;
 import com.pc.core.domain.vo.MetaVo;
 import com.pc.core.domain.vo.RouterVo;
 import com.pc.core.utils.StringUtils;
+import com.pc.model.rlzy.entity.SysMenu;
+import com.pc.model.rlzy.entity.SysRole;
+import com.pc.model.rlzy.entity.SysUser;
+import com.pc.model.rlzy.entity.TreeSelect;
+import com.pc.model.rlzy.login.LoginUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -35,6 +37,9 @@ public class SysMenuServiceImpl implements ISysMenuService {
 
     @Autowired
     private SysRoleMenuMapper roleMenuMapper;
+
+    @Autowired
+    private RSysUserFeignService userFeignService;
 
     /**
      * 根据用户查询系统菜单列表
@@ -92,7 +97,13 @@ public class SysMenuServiceImpl implements ISysMenuService {
      */
     @Override
     public List<SysMenu> selectMenuTreeByUserId(Long userId) {
-        List<SysMenu> menus = menuMapper.selectMenuTreeAll();;
+        List<SysMenu> menus = null;
+        LoginUser user = userFeignService.getLoginUser();
+        if (user.getUser().isAdmin()) {
+            menus = menuMapper.selectMenuTreeAll();
+        } else {
+            menus = menuMapper.selectMenuTreeByUserId(userId);
+        }
         return getChildPerms(menus, 0);
     }
 

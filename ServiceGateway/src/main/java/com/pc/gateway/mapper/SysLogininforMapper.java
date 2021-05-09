@@ -1,6 +1,6 @@
 package com.pc.gateway.mapper;
 
-import com.pc.gateway.bean.SysLogininfor;
+import com.pc.model.rlzy.entity.SysLogininfor;
 
 import java.util.List;
 

@@ -66,6 +66,11 @@ public class SystemConfig {
     private String anonymousRout = "ALL";
 
     /**
+     * 网关认证AES--key
+     */
+    private String authKey;
+
+    /**
      * 验证码有效期（分钟）
      */
     private Integer captchaExpireTime = 10;

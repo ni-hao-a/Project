@@ -1,6 +1,6 @@
 package com.pc.business.service;
 
-import com.pc.business.model.system.SysNotice;
+import com.pc.model.rlzy.entity.SysNotice;
 
 import java.util.List;
 

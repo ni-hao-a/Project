@@ -1,6 +1,6 @@
 package com.pc.gateway.utils.service;
 
-import com.pc.gateway.bean.SysUser;
+import com.pc.model.rlzy.entity.SysUser;
 import com.pc.gateway.utils.feignService.RSysMenuFeignService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

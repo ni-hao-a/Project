@@ -2,13 +2,13 @@ package com.pc.business.service.impl;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.pc.business.exception.ResponseCodeEnum;
 import com.pc.business.mapper.PersonnelInfoMapper;
-import com.pc.business.model.permodel.User;
-import com.pc.business.model.permodel.UserReq;
-import com.pc.business.model.pub.ResponseBean;
 import com.pc.business.service.PersonnelInfoService;
-import com.pc.business.utils.ResponseUtil;
+import com.pc.core.exception.ResponseCodeEnum;
+import com.pc.core.model.ResponseBean;
+import com.pc.core.utils.ResponseUtil;
+import com.pc.model.rlzy.req.UserReq;
+import com.pc.model.rlzy.user.UserInfo;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,7 +30,7 @@ public class PersonnelInfoServiceImpl implements PersonnelInfoService {
             return ResponseUtil.error(ResponseCodeEnum.USER_NAME_IS_EMPTY);
         }
         PageHelper.startPage(req.getPageNum(), req.getPageSize());
-        List<User> users = infoMapper.getPersonnelInfo();
-        return ResponseUtil.success(new PageInfo<>(users));
+        List<UserInfo> userInfos = infoMapper.getPersonnelInfo();
+        return ResponseUtil.success(new PageInfo<>(userInfos));
     }
 }

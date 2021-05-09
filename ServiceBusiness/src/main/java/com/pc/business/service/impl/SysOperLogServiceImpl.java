@@ -1,7 +1,7 @@
 package com.pc.business.service.impl;
 
 import com.pc.business.mapper.SysOperLogMapper;
-import com.pc.business.model.system.SysOperLog;
+import com.pc.model.rlzy.entity.SysOperLog;
 import com.pc.business.service.ISysOperLogService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

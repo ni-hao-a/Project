@@ -31,4 +31,10 @@ pagehelper:
   supportMethodsArguments: true
   pparams: count=countSql
 
+httpconfig:
+  #AES密钥
+  key: xTfwGesIES8wdaDW3w5ts4wTEL3po5Ye
+  no-check-url:
+    - /pc/system/error
+
 

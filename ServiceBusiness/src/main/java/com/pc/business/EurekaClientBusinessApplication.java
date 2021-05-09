@@ -1,12 +1,18 @@
 package com.pc.business;
 
 import com.pc.core.aspect.AspectLog;
+import com.pc.core.redis.RedisCache;
 import com.pc.core.spring.SpringUtils;
+import javafx.application.Application;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
+import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
+import org.springframework.cloud.openfeign.EnableFeignClients;
+import org.springframework.context.ApplicationContextInitializer;
+import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -25,12 +31,14 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
  */
 @SpringBootApplication
 @EnableSwagger2
+@EnableFeignClients
 @MapperScan("com.pc.business.mapper")
-//@ComponentScan(basePackages={"com.pc.core","com.pc.business"})
-@Import({SpringUtils.class, AspectLog.class})
+@EnableCaching
+@Import({SpringUtils.class, AspectLog.class, RedisCache.class})
 public class EurekaClientBusinessApplication extends SpringBootServletInitializer {
     public static void main(String[] args) {
-        SpringApplication.run(EurekaClientBusinessApplication.class, args);
+        SpringApplication springApplication = new SpringApplication(EurekaClientBusinessApplication.class);
+        springApplication.run(args);
     }
 
     @Bean
