@@ -1,14 +1,18 @@
 package com.pc.gateway.controller;
 
 import com.google.code.kaptcha.Producer;
+import com.pc.core.constants.Constants;
 import com.pc.core.exception.ResponseCodeEnum;
 import com.pc.core.model.ResponseBean;
 import com.pc.core.redis.RedisCache;
 import com.pc.core.utils.Base64.Base64s;
+import com.pc.core.utils.MessageUtils;
 import com.pc.core.utils.ResponseUtil;
 import com.pc.core.utils.ServletUtils;
 import com.pc.core.utils.uuid.EntryUtil;
 import com.pc.gateway.contants.RedisContants;
+import com.pc.gateway.manager.AsyncManager;
+import com.pc.gateway.manager.factory.AsyncFactory;
 import com.pc.gateway.mapper.LoginMapper;
 import com.pc.gateway.utils.GenerateVerificationCodeUtil;
 import com.pc.gateway.utils.JwtUtil;
@@ -133,8 +137,7 @@ public class LoginController {
     @RequestMapping(value = "/logout", method = RequestMethod.POST)
     public ResponseBean logout() throws Exception {
         // 验证码验证
-
-        return ResponseUtil.success(null);
+        return ResponseUtil.success();
     }
 
     /**

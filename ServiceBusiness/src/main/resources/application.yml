@@ -10,3 +10,29 @@ cache: #缓存配置
   #自定配置缓存key和value，样例：'{"name": 123, "sex": 123}'
   maps:
   expired: 800  #自定义默认过期时间
+
+system:
+  # 名称
+  name: Qhl
+  # 版本
+  version: 3.4.0
+  # 版权年份
+  copyrightYear: 2021
+  # 实例演示开关
+  demoEnabled: true
+  # 文件路径 示例（ Windows配置D:/home/uploadPath，Linux配置 /home/uploadPath）
+  profile: D:/home/uploadPath
+  # 获取ip地址开关
+  addressEnabled: false
+  # 验证码类型 math 数组计算 char 字符验证
+  captchaType: char
+  #jwt令牌密钥
+  secret: sdjhakdhajdklsl;o653632
+  #jwt令牌有效期  分
+  expireTime: 30
+  #令牌标识
+  header: token
+  #匿名接口访问配置区分系统标识
+  anonymousRout: rlzy
+  #网关认证AES--key
+  auth-key: xTfwGesIES8wdaDW3w5ts4wTEL3po5Ye

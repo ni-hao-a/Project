@@ -6,7 +6,7 @@ import com.pc.business.mapper.*;
 import com.pc.model.rlzy.entity.*;
 import com.pc.business.service.ISysConfigService;
 import com.pc.business.service.ISysUserService;
-import com.pc.core.annotation.DataScope;
+import com.pc.model.rlzy.annotation.DataScope;
 import com.pc.core.utils.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

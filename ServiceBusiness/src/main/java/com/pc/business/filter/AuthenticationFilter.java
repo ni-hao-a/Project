@@ -41,7 +41,7 @@ public class AuthenticationFilter extends OncePerRequestFilter {
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain)
             throws ServletException, IOException {
         // 验证免校验路由直接放行
-        if (httpConfig.getNoCheckUrl().contains(request.getRequestURI())) {
+        if (!httpConfig.getNoCheckUrl().contains(request.getRequestURI())) {
             chain.doFilter(request, response);
             return;
         }
@@ -73,7 +73,7 @@ public class AuthenticationFilter extends OncePerRequestFilter {
     private void errorResponse(HttpServletResponse response, String message) {
         ResponseBean resp = new ResponseBean();
         resp.setCode(401);
-        resp.setMessage(message);
+        resp.setMsg(message);
         response.setStatus(401);
         String result = JSONObject.toJSONString(resp);
         try {
@@ -86,9 +86,6 @@ public class AuthenticationFilter extends OncePerRequestFilter {
     private boolean isInternal(String text) {
         // 解密
         String context = AesUtil.decrypt(text, httpConfig.getKey());
-        if (IS_FEIGN.equals(context)) {
-            return true;
-        }
-        return false;
+        return IS_FEIGN.equals(context);
     }
 }

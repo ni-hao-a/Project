@@ -7,6 +7,6 @@ import lombok.Setter;
 @Setter
 public class ResponseBean {
     private int code;
-    private String message;
+    private String msg;
     private Object data;
 }

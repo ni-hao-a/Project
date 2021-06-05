@@ -1,13 +1,18 @@
 package com.pc.system;
 
+import com.pc.core.aspect.AspectLog;
+import com.pc.core.spring.SpringUtils;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
+import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
+import org.springframework.data.redis.cache.RedisCache;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -26,10 +31,10 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
  * 提供系统服务功能
  */
 @SpringBootApplication
-@RestController
-@EnableZuulProxy
 @MapperScan("com.pc.system.mapper")
 @EnableSwagger2
+@EnableCaching
+@Import({SpringUtils.class, AspectLog.class})
 public class EurekaClientSystemApplication extends SpringBootServletInitializer {
     public static void main(String[] args) {
         SpringApplication.run(EurekaClientSystemApplication.class, args);
@@ -42,7 +47,7 @@ public class EurekaClientSystemApplication extends SpringBootServletInitializer 
             return new Docket(DocumentationType.SWAGGER_2)
                     .apiInfo(apiInfo())
                     .select()
-                    .apis(RequestHandlerSelectors.basePackage("com.pc.gateway.controller"))
+                    .apis(RequestHandlerSelectors.basePackage("com.pc.system.controller"))
                     .paths(PathSelectors.any())
                     .build();
         }
@@ -78,9 +83,4 @@ public class EurekaClientSystemApplication extends SpringBootServletInitializer 
 
     @Value("${server.port}")
     String port;
-
-    @RequestMapping("/his")
-    public String home(@RequestParam(value = "name", defaultValue = "forezp") String name) {
-        return "his" + name + " ,i am from port:" + port;
-    }
 }

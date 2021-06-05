@@ -8,7 +8,7 @@ import com.pc.business.mapper.SysRoleMenuMapper;
 import com.pc.business.mapper.SysUserRoleMapper;
 import com.pc.model.rlzy.entity.SysRoleMenu;
 import com.pc.business.service.ISysRoleService;
-import com.pc.core.annotation.DataScope;
+import com.pc.model.rlzy.annotation.DataScope;
 import com.pc.core.spring.SpringUtils;
 import com.pc.core.utils.StringUtils;
 import com.pc.model.rlzy.entity.SysRole;

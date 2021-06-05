@@ -1,8 +1,8 @@
 package com.pc.model.rlzy.entity;
 
-import com.pc.core.annotation.Excel;
-import com.pc.core.annotation.Excels;
-import com.pc.core.domain.BaseEntity;
+import com.pc.model.rlzy.annotation.Excel;
+import com.pc.model.rlzy.annotation.Excels;
+import com.pc.model.rlzy.comms.BaseEntity;
 import lombok.Getter;
 import lombok.Setter;
 import org.apache.commons.lang.builder.ToStringBuilder;
@@ -15,7 +15,7 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * 用户对象 sys_user
+ * 用户对象 r_sys_user
  *
  * @author qhl
  */

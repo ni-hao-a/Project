@@ -17,4 +17,7 @@ public interface RSysUserFeignService {
 
     @RequestMapping(value = "/system/user/getLoginUser", method = RequestMethod.POST)
     LoginUser getLoginUser();
+
+    @RequestMapping(value = "/system/user/setLoginUser", method = RequestMethod.POST)
+    void setLoginUser(LoginUser req);
 }

@@ -1,8 +1,8 @@
 package com.pc.model.rlzy.entity;
 
-import com.pc.core.annotation.Excel;
-import com.pc.core.constants.UserConstants;
-import com.pc.core.domain.BaseEntity;
+import com.pc.model.rlzy.annotation.Excel;
+import com.pc.model.rlzy.comms.BaseEntity;
+import com.pc.model.rlzy.contants.UserConstants;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
@@ -133,7 +133,7 @@ public class SysDictData extends BaseEntity {
     }
 
     public boolean getDefault() {
-        return UserConstants.YES.equals(this.isDefault) ? true : false;
+        return UserConstants.YES.equals(this.isDefault);
     }
 
     public String getIsDefault() {

@@ -6,7 +6,7 @@ import com.pc.core.utils.AddressUtils;
 import com.pc.core.utils.IpUtils;
 import com.pc.core.utils.LogUtils;
 import com.pc.core.utils.ServletUtils;
-import com.pc.gateway.service.ISysLogininforService;
+import com.pc.gateway.service.ISysLoginInfoService;
 import com.pc.gateway.service.ISysOperLogService;
 import com.pc.model.rlzy.entity.SysLogininfor;
 import com.pc.model.rlzy.entity.SysOperLog;
@@ -68,7 +68,7 @@ public class AsyncFactory {
                     logininfor.setStatus(Constants.FAIL);
                 }
                 // 插入数据
-                SpringUtils.getBean(ISysLogininforService.class).insertLogininfor(logininfor);
+                SpringUtils.getBean(ISysLoginInfoService.class).insertLogininfor(logininfor);
             }
         };
     }

@@ -9,4 +9,5 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
   com.pc.core.config.FeignConfig,\
   com.pc.core.redis.RedisCacheConfig,\
-  com.pc.core.redis.RedisConfig
+  com.pc.core.redis.RedisConfig,\
+  com.pc.core.websocket.config.WebSocketConfig

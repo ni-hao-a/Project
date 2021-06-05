@@ -34,6 +34,11 @@ zuul:
       #serviceId: service-business
       url: http://localhost:7004
       strip-prefix: false
+    api-system:
+      path: /pc/base/monitor/**
+      #serviceId: service-attributes
+      url: http://localhost:7005
+      strip-prefix: false
     api-attributes:
       path: /pc/base/attributes/**
       #serviceId: service-attributes

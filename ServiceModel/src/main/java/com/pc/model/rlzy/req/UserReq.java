@@ -9,4 +9,6 @@ public class UserReq {
     private int pageNum; // 当前页码
     private int pageSize; // 每页显示数量
     private String name; // 姓名
+    private Long userId; // 姓名
+    private Long[] userIds; // 姓名
 }

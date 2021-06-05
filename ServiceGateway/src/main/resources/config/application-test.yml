@@ -20,3 +20,6 @@ httpconfig:
 
 aesconfig:
   key: AD42F6697B035B7580E4FEF93BE20BAD  #密钥
+
+public:
+  base-path: /pc/base/business

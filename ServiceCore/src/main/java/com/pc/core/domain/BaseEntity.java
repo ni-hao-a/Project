@@ -47,6 +47,12 @@ public class BaseEntity implements Serializable {
     private Date updateTime;
 
     /**
+     * 结束时间
+     */
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private Date endTime;
+
+    /**
      * 备注
      */
     private String remark;
@@ -55,4 +61,15 @@ public class BaseEntity implements Serializable {
      * 请求参数
      */
     private Map<String, Object> params;
+
+
+    /**
+     * 当前页
+     */
+    private int pageNum = 1;
+
+    /**
+     * 当前页数量
+     */
+    private int pageSize = 10;
 }

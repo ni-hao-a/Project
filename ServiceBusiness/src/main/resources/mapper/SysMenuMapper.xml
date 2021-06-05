@@ -53,20 +53,20 @@
 		order by m.parent_id, m.order_num
 	</select>
 	
-	<select id="selectMenuListByUserId" parameterType="com.pc.model.rlzy.entity.SysMenu" resultMap="SysMenuResult">
+	<select id="selectMenuListByUserId" resultMap="SysMenuResult">
 		select distinct m.menu_id, m.parent_id, m.menu_name, m.path, m.component, m.visible, m.status, ifnull(m.perms,'') as perms, m.is_frame, m.is_cache, m.menu_type, m.icon, m.order_num, m.create_time
 		from r_sys_menu m
 		left join r_sys_role_menu rm on m.menu_id = rm.menu_id
 		left join r_sys_user_role ur on rm.role_id = ur.role_id
 		left join r_sys_role ro on ur.role_id = ro.role_id
-		where ur.user_id = #{params.userId}
-		<if test="menuName != null and menuName != ''">
+		where ur.user_id = #{userId}
+		<if test="menu.menuName != null and menu.menuName != ''">
             AND menu_name like concat('%', #{menuName}, '%')
 		</if>
-		<if test="visible != null and visible != ''">
+		<if test="menu.visible != null and menu.visible != ''">
             AND visible = #{visible}
 		</if>
-		<if test="status != null and status != ''">
+		<if test="menu.status != null and menu.status != ''">
             AND status = #{status}
 		</if>
 		order by m.parent_id, m.order_num

@@ -1,8 +1,8 @@
 package com.pc.gateway.security.filter;
 
+import com.pc.core.utils.SecurityUtils;
 import com.pc.core.utils.StringUtils;
 import com.pc.model.rlzy.login.LoginUser;
-import com.pc.gateway.utils.SecurityUtils;
 import com.pc.gateway.utils.service.TokenService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;

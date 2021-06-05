@@ -25,7 +25,10 @@ public enum ResponseCodeEnum {
     TOKEN_IS_EXPIRED(100106, "凭证已过期，请重新登录"),
     USER_VER_FAILURE(100107, "验证失败"),
     AUTH__FAILURE(100108, "验证失败"),
-    USER_NAME_IS_EMPTY(100109, "用户名字为空");
+    USER_NAME_IS_EMPTY(100109, "用户名字为空"),
+    ADD_CONFIG_FAILURE(100109, "新增参数配置失败"),
+    UPDATE_CONFIG_FAILURE(100109, "修改参数配置失败"),
+    ADD_DEPT_FAILURE(100109, "新增部门失败");
 
     private int code;
     private String message;

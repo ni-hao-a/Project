@@ -1,8 +1,8 @@
 package com.pc.model.rlzy.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.pc.core.annotation.Excel;
-import com.pc.core.domain.BaseEntity;
+import com.pc.model.rlzy.annotation.Excel;
+import com.pc.model.rlzy.comms.BaseEntity;
 import lombok.Data;
 
 import java.util.Date;

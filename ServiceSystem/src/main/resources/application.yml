@@ -1,0 +1,63 @@
+server:
+  port: 7005
+spring:
+  application:
+    name: service-system
+  profiles:
+    active: dev
+  jmx:
+    default-domain: 03
+  redis:
+    # 地址
+    host: localhost
+    # 端口，默认为6379
+    port: 6379
+    # 数据库索引
+    database: 0
+    # 密码
+    password:
+    # 连接超时时间
+    timeout: 30s
+
+ribbon:
+  ReadTimeout: 60000
+  ConnectTimeout: 60000
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeout-in-milliseconds: 60000
+
+system:
+  # 名称
+  name: Qhl
+  # 版本
+  version: 3.4.0
+  # 版权年份
+  copyrightYear: 2021
+  # 实例演示开关
+  demoEnabled: true
+  # 文件路径 示例（ Windows配置D:/home/uploadPath，Linux配置 /home/uploadPath）
+  profile: D:/home/uploadPath
+  # 获取ip地址开关
+  addressEnabled: false
+  # 验证码类型 math 数组计算 char 字符验证
+  captchaType: char
+  #jwt令牌密钥
+  secret: sdjhakdhajdklsl;o653632
+  #jwt令牌有效期  分
+  expireTime: 30
+  #令牌标识
+  header: token
+  #匿名接口访问配置区分系统标识
+  anonymousRout: rlzy
+  #网关认证AES--key
+  auth-key: xTfwGesIES8wdaDW3w5ts4wTEL3po5Ye
+
+
+
+httpconfig:
+  no-check-url:

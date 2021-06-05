@@ -1,8 +1,10 @@
 package com.pc.business;
 
 import com.pc.core.aspect.AspectLog;
+import com.pc.core.config.SystemConfig;
 import com.pc.core.redis.RedisCache;
 import com.pc.core.spring.SpringUtils;
+import com.pc.core.websocket.WebSocketServer;
 import javafx.application.Application;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
@@ -13,10 +15,7 @@ import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.ApplicationContextInitializer;
 import org.springframework.context.ConfigurableApplicationContext;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Import;
+import org.springframework.context.annotation.*;
 import org.springframework.web.client.RestTemplate;
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
@@ -34,7 +33,8 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableFeignClients
 @MapperScan("com.pc.business.mapper")
 @EnableCaching
-@Import({SpringUtils.class, AspectLog.class, RedisCache.class})
+@EnableAspectJAutoProxy(proxyTargetClass = true, exposeProxy = true)
+@Import({SpringUtils.class, AspectLog.class, RedisCache.class, WebSocketServer.class, SystemConfig.class})
 public class EurekaClientBusinessApplication extends SpringBootServletInitializer {
     public static void main(String[] args) {
         SpringApplication springApplication = new SpringApplication(EurekaClientBusinessApplication.class);

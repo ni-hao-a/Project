@@ -7,6 +7,7 @@ import com.pc.gateway.security.handle.AuthenticationEntryPointImpl;
 import com.pc.gateway.security.handle.LogoutSuccessHandlerImpl;
 import com.pc.gateway.service.ISysAnonRouteService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -28,6 +29,9 @@ import org.springframework.web.filter.CorsFilter;
  */
 @EnableGlobalMethodSecurity(prePostEnabled = true, securedEnabled = true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
+
+    @Value("${public.base-path}")
+    private String basePath;
 
     /**
      * 自定义用户认证逻辑
@@ -119,8 +123,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         "/**/*.js"
                 ).permitAll()
                 .antMatchers("/profile/**").anonymous()
-                .antMatchers("/common/download**").anonymous()
-                .antMatchers("/common/download/resource**").anonymous()
+                .antMatchers(basePath+"/common/download**").anonymous()
+                .antMatchers(basePath+"/common/download/resource**").anonymous()
                 .antMatchers("/swagger-ui.html").anonymous()
                 .antMatchers("/swagger-resources/**").anonymous()
                 .antMatchers("/webjars/**").anonymous()

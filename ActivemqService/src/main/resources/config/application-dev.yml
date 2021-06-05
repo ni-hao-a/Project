@@ -1,0 +1,23 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: 123
+    url: jdbc:mysql://localhost:3306/test?characterEncoding=utf-8
+  activemq:
+    broker-url: tcp://127.0.0.1:61616  # MQ所在的服务器的地址
+    in-memory: false  # 是否使用内置的MQ， true  使用； fale  不使用
+    non-blocking-redelivery: false  # 是否在回滚回滚消息之前停止消息传递。这意味着当启用此命令时，消息顺序不会被保留。
+    user: admin
+    password: admin
+    pool:
+      idle-timeout: 30s # 连接空闲超时
+
+logging:
+  config: classpath:log/logback-dev.xml
+
+swagger:
+  enable: true    #dev环境激活swagger
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
