@@ -21,7 +21,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableFeignClients
 @EnableHystrix
 @EnableSwagger2
-@MapperScan("com.pc.dictionary.mapper")
+@MapperScan("com.pc.dictionary.com.pc.service.com.pc.service.mapper")
 public class EurekaClientDictionaryApplication extends SpringBootServletInitializer {
     public static void main(String[] args) {
         SpringApplication.run(EurekaClientDictionaryApplication.class, args);

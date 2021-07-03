@@ -8,11 +8,9 @@ import com.pc.core.file.FileUtils;
 import com.pc.core.model.ResponseBean;
 import com.pc.core.utils.ResponseUtil;
 import com.pc.core.utils.StringUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -28,10 +26,10 @@ import java.util.Map;
  *
  * @author ruoyi
  */
+@Slf4j
 @RestController
 @RequestMapping(value = "/pc/base/business/common", method = RequestMethod.POST)
 public class CommonController {
-    private static final Logger log = LoggerFactory.getLogger(CommonController.class);
 
     @Autowired
     private ServerConfig serverConfig;

@@ -1,0 +1,84 @@
+server:
+  port: 8081
+  servlet:
+    context-path: /seckill
+spring:
+  application:
+    name: mall-seckill
+  profiles:
+    active: dev
+  jmx:
+    default-domain: 09
+  redis:
+    host: localhost     # 地址
+    port: 6379    # 端口，默认为6379
+    database: 0    # 数据库索引
+    password:      # 密码（默认为空）
+    timeout: 30000   # 连接超时时间(毫秒)
+  session:
+    store-type: redis
+
+
+  freemarker: #freemarker(用于商品静态页生成简化版)
+    template-loader-path: classpath:/static/template/
+    suffix: .flt
+    enabled: true
+    cache: false
+    charset: UTF-8
+    content-type: text/html
+    allow-request-override: false
+    check-template-location: true
+    expose-request-attributes: false
+    expose-session-attributes: false
+    expose-spring-macro-helpers: false
+
+  thymeleaf:
+    cache: false
+    cache-period: 0
+    check-template: false
+  mvc:
+    static-path-pattern: /**
+
+  #kafka相关配置 参考：https://blog.52itstyle.vip/archives/2868/
+#  kafka:
+#    bootstrap-servers: 192.168.1.180:9092
+#    consumer:
+#      group-id: 0 #设置一个默认组
+#      #key-value序列化反序列化
+#      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+#      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+#    producer:
+#      #key-value序列化反序列化
+#      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+#      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+#      batch-size: 65536  #每次批量发送消息的数量
+#      buffer-memory: 524288
+
+  # activemq 基础配置
+  activemq:
+    broker-url: tcp://127.0.0.1:61616
+    user: admin
+    password: admin
+    in-memory: true
+    pool:
+      enabled: false
+
+
+# redisson lock
+redisson:
+  address: redis://127.0.0.1:6379
+  password: 123456
+
+# 验证码参数(自行替换)
+qq:
+  captcha:
+    url: https://ssl.captcha.qq.com/ticket/verify
+    aid: 20426***
+    AppSecretKey: 0OsIkPt******
+
+info:
+   app:
+     version: v1.0.0
+     name: 爪哇笔记
+     email: 345849402@qq.com
+     url: https://blog.52itstyle.vip

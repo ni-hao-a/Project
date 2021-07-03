@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.pc.seckill.mapper.RedPacketRecordMapper">
+    <!--保存抢红包记录-->
+    <insert id="saveResult" parameterType="com.pc.seckill.common.entity.RedPacketRecord">
+        insert into red_packet_record
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="redPacketId != null">
+                red_packet_id,
+            </if>
+            <if test="money != null">
+                money,
+            </if>
+            <if test="uid != null">
+                uid,
+            </if>
+            <if test="createTime != null">
+                create_time
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="redPacketId != null">
+                #{redPacketId},
+            </if>
+            <if test="money != null">
+                #{money},
+            </if>
+            <if test="uid != null">
+                #{uid},
+            </if>
+            <if test="createTime != null">
+                #{createTime}
+            </if>
+        </trim>
+    </insert>
+</mapper>

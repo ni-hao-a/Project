@@ -31,7 +31,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @SpringBootApplication
 @EnableSwagger2
 @EnableFeignClients
-@MapperScan("com.pc.business.mapper")
+@MapperScan("com.pc.business.com.pc.service.com.pc.service.mapper")
 @EnableCaching
 @EnableAspectJAutoProxy(proxyTargetClass = true, exposeProxy = true)
 @Import({SpringUtils.class, AspectLog.class, RedisCache.class, WebSocketServer.class, SystemConfig.class})

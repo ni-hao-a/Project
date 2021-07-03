@@ -28,7 +28,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @SpringBootApplication
 @RestController
 @EnableZuulProxy
-@MapperScan("com.pc.quarzt.mapper")
+@MapperScan("com.pc.quarzt.com.pc.service.com.pc.service.mapper")
 @EnableSwagger2
 public class EurekaClientQuarztApplication extends SpringBootServletInitializer {
     public static void main(String[] args) {

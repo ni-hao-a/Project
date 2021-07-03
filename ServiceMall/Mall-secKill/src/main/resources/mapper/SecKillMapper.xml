@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.pc.seckill.mapper.SecKillMapper">
+
+    <!--查询所有秒杀商品-->
+    <select id="findAll" resultType="com.pc.seckill.common.entity.Seckill">
+        SELECT
+        seckill_id seckillId,
+        name,
+        number,
+        start_time startTime,
+        end_time endTime,
+        create_time createTime,
+        version,
+        pic_url picUrl
+        FROM seckill
+    </select>
+
+    <!--重置商品库存-->
+    <update id="updateSecKill" parameterType="java.lang.Long">
+        UPDATE seckill SET number =100 WHERE seckill_id=#{secKillId}
+	</update>
+
+    <!--校验商品库存-->
+    <select id="getSecKillCount" resultType="com.pc.seckill.common.entity.Seckill">
+        SELECT
+        seckill_id seckillId,
+        name,
+        number,
+        start_time startTime,
+        end_time endTime,
+        create_time createTime,
+        version
+        FROM seckill
+        WHERE seckill_id=#{secKillId}
+    </select>
+
+    <!--扣除商品库存-->
+    <update id="updateSecKillDed" parameterType="java.lang.Long">
+        UPDATE seckill  SET number=number-1 WHERE seckill_id=#{secKillId}
+	</update>
+
+    <!--悲观锁-FOR UPDATE-->
+    <select id="getSecKillById" resultType="com.pc.seckill.common.entity.Seckill">
+        SELECT number FROM seckill WHERE seckill_id=#{secKillId} FOR UPDATE
+	</select>
+
+    <!--乐观锁-version-->
+    <update id="updateStock" >
+        UPDATE seckill  SET number=number-1,version=version+1 WHERE seckill_id=#{secKillId} AND version = #{version}
+	</update>
+
+    <!--扣除商品库存并且校验库存-->
+    <update id="updateStockAndDed" parameterType="java.lang.Long">
+        UPDATE seckill  SET number=number-1 WHERE seckill_id=#{secKillId} AND number>0
+	</update>
+</mapper>

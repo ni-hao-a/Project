@@ -9,11 +9,10 @@ import com.pc.model.rlzy.contants.ScheduleConstants;
 import com.pc.quarzt.domain.SysJob;
 import com.pc.quarzt.domain.SysJobLog;
 import com.pc.quarzt.service.ISysJobLogService;
+import lombok.extern.slf4j.Slf4j;
 import org.quartz.Job;
 import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.util.Date;
 
@@ -22,8 +21,8 @@ import java.util.Date;
  *
  * @author ruoyi
  */
+@Slf4j
 public abstract class AbstractQuartzJob implements Job {
-    private static final Logger log = LoggerFactory.getLogger(AbstractQuartzJob.class);
 
     /**
      * 线程本地变量

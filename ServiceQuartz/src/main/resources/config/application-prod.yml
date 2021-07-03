@@ -12,7 +12,7 @@ swagger:
   enable: false    #dev环境激活swagger
 
 mybatis:
-  mapper-locations: classpath:mapper/*.xml
+  mapper-locations: classpath:com.pc.service.com.pc.service.mapper/*.xml
 
 httpconfig:
   no-check-url:

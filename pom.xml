@@ -19,15 +19,16 @@
 
     <!--子项目module-->
     <modules>
-        <module>ServiceCenter</module>
-        <module>ServiceGateway</module>
-        <module>ServiceBusiness</module>
-        <module>ServiceDictionary</module>
-        <module>ServiceCore</module>
-        <module>ServiceSystem</module>
-        <module>ServiceQuartz</module>
-        <module>ServiceModel</module>
-        <module>ActivemqService</module>
+        <module>ServiceCenter</module>  <!--注册中心-->
+        <module>ServiceGateway</module>  <!--公共网关模块-->
+        <module>ServiceBusiness</module>  <!--人力资源后台管理模块-->
+        <module>ServiceDictionary</module>  <!--字典模块模块-->
+        <module>ServiceCore</module>  <!--公共依赖模块-->
+        <module>ServiceSystem</module>  <!--系统模块-->
+        <module>ServiceQuartz</module>  <!--定时任务模块-->
+        <module>ServiceModel</module>  <!--公共实体模块-->
+        <module>ActivemqService</module>  <!--activeMq支持-->
+        <module>ServiceMall</module>  <!--商城后台管理-->
     </modules>
 
     <properties>

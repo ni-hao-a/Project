@@ -1,8 +1,5 @@
 package com.pc.core.poi;
 
-import com.pc.model.rlzy.annotation.Excel;
-import com.pc.model.rlzy.annotation.Excel.Type;
-import com.pc.model.rlzy.annotation.Excels;
 import com.pc.core.config.SystemConfig;
 import com.pc.core.date.DateUtils;
 import com.pc.core.exception.BusinessException;
@@ -14,13 +11,15 @@ import com.pc.core.text.Convert;
 import com.pc.core.utils.DictUtils;
 import com.pc.core.utils.ResponseUtil;
 import com.pc.core.utils.StringUtils;
+import com.pc.model.rlzy.annotation.Excel;
+import com.pc.model.rlzy.annotation.Excel.Type;
+import com.pc.model.rlzy.annotation.Excels;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.ss.util.CellRangeAddressList;
 import org.apache.poi.xssf.streaming.SXSSFWorkbook;
 import org.apache.poi.xssf.usermodel.XSSFClientAnchor;
 import org.apache.poi.xssf.usermodel.XSSFDataValidation;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.io.*;
 import java.lang.reflect.Field;
@@ -34,8 +33,8 @@ import java.util.stream.Collectors;
  *
  * @author qhl
  */
+@Slf4j
 public class ExcelUtil<T> {
-    private static final Logger log = LoggerFactory.getLogger(ExcelUtil.class);
 
     /**
      * Excel sheet最大行数，默认65536

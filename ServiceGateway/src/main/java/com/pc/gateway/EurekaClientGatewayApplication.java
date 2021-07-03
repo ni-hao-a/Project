@@ -34,7 +34,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @RestController
 @EnableZuulProxy
 @Import({AspectLog.class, RedisCache.class})
-@MapperScan("com.pc.gateway.mapper")
+@MapperScan("com.pc.gateway.com.pc.service.com.pc.service.mapper")
 @EnableSwagger2
 @EnableFeignClients
 public class EurekaClientGatewayApplication extends SpringBootServletInitializer {

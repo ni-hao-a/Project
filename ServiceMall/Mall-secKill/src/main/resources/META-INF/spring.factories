@@ -1,0 +1,9 @@
+# Application Context Initializers customize classes
+#context.initializer.classes=\
+
+# Application Context Initializers
+#org.springframework.context.ApplicationContextInitializer=\
+
+
+# Application Context EnableAutoConfiguration
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=

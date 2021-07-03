@@ -8,14 +8,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.cache.annotation.EnableCaching;
-import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
-import org.springframework.data.redis.cache.RedisCache;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
@@ -31,7 +26,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
  * 提供系统服务功能
  */
 @SpringBootApplication
-@MapperScan("com.pc.system.mapper")
+@MapperScan("com.pc.system.com.pc.service.com.pc.service.mapper")
 @EnableSwagger2
 @EnableCaching
 @Import({SpringUtils.class, AspectLog.class})
